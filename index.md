@@ -7,7 +7,7 @@ Berikut ini adalah Koleksi yang dimiliki:
 
 1. [7d. Crossing the Barriers of Library Anxiety id.pdf](ebook/7d. Crossing the barriers of library anxiety id.pdf) — Anis, dkk (2024)
 2. [BMC Medical Research (4).pdf](ebook/BMC Medical Research (4).pdf) — Shinchen, dkk (2025)
-3. [Digital Mirror (6).pdf](ebook/Digital Mirror (6).pdf) — YUxin (2025)
+3. [Digital Mirror (6).pdf](ebook/Digital Mirror (6).pdf) — Yuxin (2025)
 4. [IJIM Digital Libraries (3).pdf](ebook/IJIM Digital Libraries (3).pdf) — Jia, dkk (2025)
 5. [MDPI FOMO (5).pdf](ebook/MDPI FOMO (5).pdf) — Weimiao, dkk (2025)
 6. [Materi VR (2).pdf](ebook/Materi VR (2).pdf) — Dr. Tengku (2025)
