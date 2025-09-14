@@ -5,7 +5,7 @@ Selamat Datang di Perpustakaan Digital
 Berikut ini adalah Koleksi yang dimiliki:
 ## Koleksi
 
-1. .[7d. Crossing the Barriers of Library Anxiety id.pdf].(ebook/7d. Crossing the barriers of library anxiety id.pdf) — Anis, dkk (2024)
+1. [7d. Crossing the Barriers of Library Anxiety id.pdf] (ebook/7d. Crossing the barriers of library anxiety id.pdf) — Anis, dkk (2024)
 2. .[BMC Medical Research (4)].(ebook/BMC Medical Research (4)) — Shinchen, dkk (2025)
 3. .[Digital Mirror (6)].(ebook/Digital Mirror (6)) — YUxin (2025)
 4. .[IJIM Digital Libraries (3)].(ebook/IJIM Digital Libraries (3)) — Jia, dkk (2025)
