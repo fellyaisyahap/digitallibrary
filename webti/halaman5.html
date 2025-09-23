@@ -3,76 +3,86 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kalkulator Sederhana</title>
+    <title>Chatbot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            flex-direction: column;
         }
-        .nav-container {
-            width: 100%;
-            background: #ffffff; /* background putih */
-            padding: 10px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .nav-container a {
-            margin: 0 8px;
+        p a {
+            margin-right: 8px;
             text-decoration: none;
             color: #333;
-            font-weight: normal;
         }
-        .nav-container a:hover {
+        p a:hover {
             text-decoration: underline;
         }
-        .calculator {
-            width: 250px;
-            background: #ccccff;
-            padding: 20px;
+        .chat-container {
+            width: 300px;
+            height: 400px;
+            background: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-            margin-top: 70px; /* agar tidak tertutup nav */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: 10px;
         }
-        .calculator input {
-            width: 100%;
-            height: 50px;
-            text-align: right;
-            font-size: 1.5em;
+        .chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+        .message {
             margin-bottom: 10px;
-            padding-right: 10px;
-            box-sizing: border-box;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
         }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
         }
-        .buttons button {
-            padding: 15px;
-            font-size: 1.2em;
+        .bot-message {
+            background-color: #e5e5ea;
+            color: black;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
             border: none;
-            background: #e3fffb;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.2s ease;
+            outline: none;
+            font-size: 14px;
         }
-        .buttons button:hover {
-            background: #bbb;
+        .chat-input button {
+            padding: 10px 15px;
+            border: none;
+            background: blue;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .chat-input button:hover {
+            background: darkblue;
         }
     </style>
 </head>
 <body>
-    <div class="nav-container">
+    <p>
         <a href="../">Index</a>
         <a href="halaman1.html">Halaman 1</a>|
         <a href="halaman2.html">Halaman 2</a>|
@@ -81,50 +91,62 @@
         <a href="halaman5.html">Halaman 5</a>|
         <a href="halaman6.html">Halaman 6</a>|
         <a href="halaman7.html">Halaman 7</a>
-    </div>
+    </p>
 
-    <div class="calculator">
-        <input type="text" id="display" disabled />
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendValue('/')">/</button>
-            <button onclick="appendValue('*')">*</button>
-            <button onclick="appendValue('-')">-</button>
-
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('+')">+</button>
-
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="calculateResult()">=</button>
-
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="appendValue('0')">0</button>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script>
-        function appendValue(value) {
-            document.getElementById("display").value += value;
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === "") return;
+
+            // Tambahkan pesan user ke chat
+            const userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.textContent = message;
+            chatBox.appendChild(userMessage);
+
+            userInput.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Balasan bot dengan delay 1 detik
+            setTimeout(() => {
+                const botMessage = document.createElement("div");
+                botMessage.classList.add("message", "bot-message");
+                botMessage.textContent = getBotResponse(message);
+                chatBox.appendChild(botMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
         }
 
-        function clearDisplay() {
-            document.getElementById("display").value = "";
+        function getBotResponse(input) {
+            const responses = {
+                "hai": "Hai juga!",
+                "bagaimana kabarmu?": "Aku baik-baik saja.",
+                "siapa namamu?": "Aku chat bot.",
+                "siapa itu Jung Sungchan?": "Member RIIZE.",
+                "dulunya anak mana?" : "NCT."
+            };
+            return responses[input.toLowerCase()] || "Maaf saya tidak tahu.";
         }
 
-        function calculateResult() {
-            try {
-                document.getElementById("display").value = eval(document.getElementById("display").value);
-            } catch (e) {
-                alert("Invalid Calculation");
+        // Kirim pesan saat tekan Enter
+        userInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
             }
-        }
+        });
     </script>
 </body>
 </html>
+
 
