@@ -19,11 +19,11 @@ Berikut ini adalah Koleksi yang dimiliki:
 — — —
 
 [Halaman1](webti/halaman1.html)
-
+[Halaman2](webti/halaman2.html)
+[Halaman3](webti/halaman3.html)
+[Halaman4](webti/halaman4.html)
 [Halaman5](webti/halaman5.html)
-
 [Halaman6](webti/halaman6.html)
-
 [Halaman7](webti/halaman7.html)
 
 *Powered by GitHub Pages*
