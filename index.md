@@ -24,6 +24,6 @@ Berikut ini adalah Koleksi yang dimiliki:
 [Halaman 4 |](webti/halaman4.html)
 [Halaman 5 |](webti/halaman5.html)
 [Halaman 6 |](webti/halaman6.html)
-[Halaman 7 |](webti/halaman7.html)
+[Halaman 7](webti/halaman7.html)
 
 *Powered by GitHub Pages*
